@@ -1,1 +1,1 @@
-starting off to a low level language
+moving into variables, ifs, else and while
