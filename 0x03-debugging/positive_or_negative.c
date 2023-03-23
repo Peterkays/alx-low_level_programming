@@ -2,6 +2,7 @@
 
 /**
  * positive_or_negative - main function
+ * @i: value to be checked
  */
 
 void positive_or_negative(int i)
