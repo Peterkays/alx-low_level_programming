@@ -14,7 +14,7 @@ int main(void)
 	char r2[10];
 	char r3[11];
 	char *res;
-	
+
 	res = infinite_add(n, m, r, 100);
 	if (res == 0)
 	{
