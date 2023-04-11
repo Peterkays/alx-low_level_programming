@@ -113,7 +113,7 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			pos = _strlen(str, i);
-			tmp[j] = malloc(sizeof(char) * (pos + 1));
+			tmp[j] = malloc(sizeof(char) * (pos + 2));
 			if (tmp[j] == NULL)
 			{
 				for (t = j; t >= 0; t--)
