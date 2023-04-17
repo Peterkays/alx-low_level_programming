@@ -1,0 +1,1 @@
+movomg to structures typedef
