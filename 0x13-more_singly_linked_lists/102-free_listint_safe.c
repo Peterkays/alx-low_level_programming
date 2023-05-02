@@ -1,53 +1,41 @@
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * free_listint_safe - Free a list that may or may not loop,
- * set start of list to NULL
- * @h: Pointer to pointer to the start of the list
- * Return: Size of the list that has been freed
+ * free_listint_safe - frees a linked list
+ * @h: pointer to the first node in the linked list
+ *
+ * Return: number of elements in the freed list
  */
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *killnode;
-	listint_t *current;
-	listadd_t *headadd;
-	listadd_t *checker;
-	size_t count;
+	size_t len = 0;
+	int diff;
+	listint_t *temp;
 
-	count = 0;
-	current = *h;
-	headadd = NULL;
-	if (h != NULL)
+	if (!h || !*h)
+	return (0);
+
+	while (*h)
 	{
-		while (current != NULL)
+		diff = *h - (*h)->next;
+		if (diff > 0)
 		{
-			checker = headadd;
-			while (checker != NULL)
-			{
-				if (current == checker->address)
-				{
-					free(current);
-					free_listadd(headadd);
-					/*headadd = NULL;*/
-					 *h = NULL;
-					return (count);
-				}
-				checker = checker->next;
-			}
-			killnode = current;
-			if (add_nodeaddress(&headadd, current) == NULL)
-			{
-				free_listadd(headadd);
-				exit(98);
-			}
-			current = current->next;
-			free(killnode);
-			count++;
+			temp = (*h)->next;
+			free(*h);
+			*h = temp;
+			len++;
 		}
-		free_listadd(headadd);
-		/*headadd = NULL;*/
-		*h = NULL;
+		else
+		{
+			free(*h);
+			*h = NULL;
+			len++;
+			break;
+		}
 	}
-	return (count);
+
+	*h = NULL;
+
+	return (len);
 }
+
