@@ -1,16 +1,21 @@
-#include <stdio.h>
-#include "main.h
+#include "main.h"
 
-"/**
- * get_endianness - Gets the endianness of a machine
- *
- * Return: 1 if little endian, 0 if big endian
- */
+/**
+  * get_endianness - Check if the system is little or big endianness.
+  *
+  * Return: 1 if is little, and 0 if is big.
+  */
+
 int get_endianness(void)
 {
-	int x;
-	char *y;
+	int i = 1;
 
-	y = (char *)&x;
-	return (*y + 48);
+	if (*(char *)&i == 1)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
