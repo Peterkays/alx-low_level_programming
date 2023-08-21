@@ -1,13 +1,8 @@
 #include "main.h"
 #include <stdio.h>
-
-/**
- * main - check the code
- *
- * Return: Always EXIT_SUCCESS.
- */
 int main(void)
 {
-	printf("%d\n", _strlen("My Dyn Lib"));
-	return (EXIT_SUCCESS);
+	
+	printf("At the end of the days, my goal was to be the best hacker");
+return (0);
 }
